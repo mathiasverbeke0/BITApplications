@@ -3,22 +3,34 @@
 ##############################################################################################################
 # Author: Mathias Verbeke
 # Date of creation: 2022/01/02
-# Usage: This script calculates the number of (un)rooted trees
+# Usage: This script calculates the number of OTUs, rooted trees and unrooted trees
 # Input: The amount of OTUs, the amount of rooted trees or the amount of unrooted trees
+# Output: The amount of OTUs, the amount of rooted trees and the amount of unrooted trees
 ##############################################################################################################
-                                                                                                                                   
+
+################
+# Import modules 
+################                                                                                                                                    
+
 import sys
 
+##################
+# Define functions
+##################
+
+# Define function that uses the amount of OTUs as input and prints the amount of (un)rooted trees 
 
 def all_trees (OTU):
 
     if OTU < 2:
         sys.exit("Invalid amount of OTUs.\n")
     
+    # Calculate the double factorial (or semifactorial) of the unrooted term (2n-5) and the rooted term (2n-3)
+
     else:
         result = 1
         unrooted_term = (2*OTU)-5
-        
+         
         for i in range(unrooted_term, 0, -2):
             result *= i
 
@@ -32,8 +44,14 @@ def all_trees (OTU):
         
         print("Amount of rooted trees: {}".format(result))
 
+
+# Define function that uses the amount of the amount of unrooted trees as input and prints the amount of OTUs and the amount of rooted trees
+
 def rooted_from_unrooted (unrooted):
     collection = []
+
+    # Check if the provided amount of unrooted trees matches with a specific amount of OTUs (upper limit is 1000 OTUs)
+    # If there is a match, print the amount of OTUs and the amount of rooted trees 
 
     for j in range(2,1001):
         result = 1
@@ -65,8 +83,13 @@ def rooted_from_unrooted (unrooted):
         sys.exit("The amount of unrooted trees does not match a specific amount of OTUs or is out of range.\n")
 
 
+# Define function that uses the amount of the amount of rooted trees as input and prints the amount of OTUs and the amount of unrooted trees
+
 def unrooted_from_rooted (rooted):
     collection = []
+
+    # Check if the provided amount of rooted trees matches with a specific amount of OTUs (upper limit is 1000 OTUs)
+    # If there is a match, print the amount of OTUs and the amount of unrooted trees 
 
     for j in range(2,1001):
         result = 1
@@ -97,6 +120,9 @@ def unrooted_from_rooted (rooted):
     if rooted not in collection:
         sys.exit("The amount of rooted trees does not match a specific amount of OTUs or is out of range.\n") 
 
+###########################
+# Define the user interface
+###########################
 
 print(" ____  _   ___   ___     ___   ____ _____ _   _ _____ _____ ___ ____   _____ ____  _____ _____    ____ ___  _   _ _   _ _____ _____ ____  \n\
 |  _ \| | | \ \ / | |   / _ \ / ___| ____| \ | | ____|_   _|_ _/ ___| |_   _|  _ \| ____| ____|  / ___/ _ \| | | | \ | |_   _| ____|  _ \ \n\
