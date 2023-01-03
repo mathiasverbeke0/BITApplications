@@ -1,4 +1,4 @@
-# FastaDuplicateDetector
+# DNATranslator
 
 This application translates a DNA sequence into its 6 possible reading frames.
 
