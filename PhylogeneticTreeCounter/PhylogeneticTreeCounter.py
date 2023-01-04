@@ -27,6 +27,9 @@ def all_trees (OTU):
     
     # Calculate the double factorial (or semifactorial) of the unrooted term (2n-5) and the rooted term (2n-3)
 
+    if OTU > 1000:
+        sys.exit("The amount of OTUs is out of range.\n")
+
     else:
         result = 1
         unrooted_term = (2*OTU)-5
