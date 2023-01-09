@@ -5,7 +5,7 @@ This application interprets Log-Odds scores in the context of pairwise alignment
 ## Usage
 
 ```bash
-$ python LogOddsInterpreter.py [-h] [-s score] [-i input] [-o output] [-n]
+usage: LogOddsInterpreter.py [-h] [-s score] [-i input] [-o output] [-n]
 
 options:
   -h, --help            show this help message and exit
