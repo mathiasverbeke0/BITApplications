@@ -29,7 +29,7 @@ $ python LogOddsInterpreter.py -s 8.5
 
 ### Interpreting multiple Log-Odds scores from an input file
 
-To interpret multiple Log-Odds scores from an input file, use the -i or --input option followed by the path to the input file. Optionally, you can also use the -o or --output option followed by the path to the output file to save the interpretations to a file:
+To interpret multiple Log-Odds scores from an input file, use the -i or --input option followed by the path to the input file. Additionally, use the -o or --output option followed by the path to the output file to save the interpretations to a file:
 
 ```bash
 $ python LogOddsInterpreter.py -i scores.txt -o interpretations.txt
