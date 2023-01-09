@@ -5,5 +5,5 @@ This application corrects the amount of observed nucleotide substitutions using 
 ## Usage
 
 ```bash
-$ python .py
+$ python NucleotideSubstitutionCorrector.py
 ```
