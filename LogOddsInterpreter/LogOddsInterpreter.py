@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-#####################################################################################
+#########################################################################################
 # Author: Mathias Verbeke
 # Date of creation: 2022/01/09
-# Usage: This script interprets Log-Odds scores in the context of pairwise alignment.
+# Usage: This script interprets PAM Log-Odds scores in the context of pairwise alignment.
 # Input: A Log-Odds score or a file with comma separated Log-Odds scores
 # Output: The interpretation of the Log-Odds score
-#####################################################################################
+#########################################################################################
 
 ##################
 # Imported modules
@@ -19,27 +19,29 @@ import argparse, sys, os, csv
 #######################
 
 def LogOdds(score, flag):
+    # Transformation of the Log-Odds score
     relatednessOdds = 10**(score/10)
 
+    # Assignment of an interpretation
     if relatednessOdds < 1:
         freq = round(1/relatednessOdds,2)
 
         if flag == "single":
-            result = "\nIt is likely that the alignment of the two amino acids is due to chance, rather than them being actual homologues.\nThis likelihood is {} times greater than the probability that the amino acids are homologues.".format(freq)
+            result = "It is likely that the alignment of the two amino acids is due to chance, rather than them being actual homologues.\nThis likelihood is {} times greater than the probability that the amino acids are homologues.".format(freq)
         
         elif flag == "multi":
             result = "AA alignment due to: chance\t\t\t\t\tLikelihood: {} times more likely".format(freq)
         
     elif relatednessOdds == 1:
         if flag == "single":
-            result = "\nThe alignment of the two amino acids could be due to either chance or homology.\nBoth possibilities are equally likely."
+            result = "The alignment of the two amino acids could be due to either chance or homology.\nBoth possibilities are equally likely."
 
         elif flag == "multi":
             result = "AA alignment due to: homology or chance\t\tLikelihood: equally likely"
 
     elif relatednessOdds > 1:
         if flag == "single":
-            result = "\nIt is likely that the alignment of the two amino acids is due to the fact that they are homologues, rather than the alignment occurring by chance.\nThis likelihood is {} times greater than the probability that the alignment occurred by chance.".format(round(relatednessOdds, 2))
+            result = "It is likely that the alignment of the two amino acids is due to the fact that they are homologues, rather than the alignment occurring by chance.\nThis likelihood is {} times greater than the probability that the alignment occurred by chance.".format(round(relatednessOdds, 2))
         
         elif flag == "multi":
             result = "AA alignment due to: homology\t\t\t\tLikelihood: {} times more likely".format(round(relatednessOdds, 2))
@@ -57,6 +59,10 @@ parser.add_argument('-o', '--output', metavar = 'output', required = False, help
 parser.add_argument('-n', '--newline', required = False, action = 'store_true', help = 'place a newline in the output file for every line of Log-Odd scores in the input file')
 
 args = parser.parse_args()
+
+#################
+# Argument checks
+#################
 
 if len(sys.argv) == 1:
     parser.print_help()
@@ -102,17 +108,18 @@ if args.output != None:
         else:
             print("Invalid response, try again!")
 
-#######
-# Logic
-#######
+###########
+# Execution
+###########
 
+# Interpretation of a single score
 if args.score != None:
     score = args.score
     flag = "single"
 
-    print("{}\n".format(LogOdds(score, flag)))
+    print("{}".format(LogOdds(score, flag)))
 
-
+# Interpretation of multiple scores from an input file
 if args.input != None and args.output != None:
     flag = "multi"
     
@@ -127,14 +134,16 @@ if args.input != None and args.output != None:
         for score in line:
             score.strip()
 
+            # Throw error in case a score value can not be changed to a float
             try:
                 score = float(score)
 
             except Exception as e:
+                print(e)
+                print("The scores in {} were interpreted and placed in {} up to the point of the score that throws an error.".format(os.path.basename(input), os.path.basename(output)))
                 inputFile.close()
                 outputFile.close()
-
-                sys.exit(e)
+                sys.exit()
             
             outputFile.write("Score: {:<10.2f}\t{}\n".format(score, LogOdds(score, flag)))
         
