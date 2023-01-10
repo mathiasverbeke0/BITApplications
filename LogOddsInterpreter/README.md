@@ -1,6 +1,6 @@
 # LogOddsInterpreter
 
-This application interprets Log-Odds scores in the context of pairwise alignments.
+This application interprets PAM Log-Odds scores in the context of pairwise alignments.
 
 ## Usage
 
