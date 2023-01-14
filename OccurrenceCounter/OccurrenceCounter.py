@@ -53,6 +53,7 @@ if args.n != 10 and args.l == True and args.g == False:
 #####################
 # Important variables
 #####################
+args.c = args.c - 1
 
 # Filenames
 filename = args.i
@@ -204,6 +205,7 @@ if args.g == True:
     plt.xlabel(args.x)
     plt.ylabel(args.y)
     plt.title(args.t)
+    plt.tight_layout()
     figure = plt.gcf()
     figure.savefig(filename_barplot)
 
