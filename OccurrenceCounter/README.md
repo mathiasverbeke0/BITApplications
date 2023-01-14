@@ -46,6 +46,10 @@ options:
 python OccurrenceCounter.py -i input.csv -d tab -c 2 -l -e -x "Frequency" -y "Words"
 ```
 This command will read the input.csv file, using a tab as the delimiter and column 2 as the column to count occurrences. It will list the items and their occurrences and write the list to an excel file with label "Frequency" for occurrences and "Words" for items.
+```bash
+python OccurrenceCounter.py -i input.csv -d comma -c 5 -H -g -t "Occurrences of Items in Column 5" -x "Frequency" -y "Items"
+```
+This command will read the input.csv file, using a comma as the delimiter and column 5 as the column to count occurrences. It assumes the input file has a header, generates a bar plot with the top 10 items (default value) based on their occurrences and a title of "Occurrences of Items in Column 5" with label "Frequency" for occurrences and "Items" for items.
 
 ```bash
 python OccurrenceCounter.py -i input.csv -d comma -c 5 -H -l -g -n 8 -t "Occurrences of Items in Column 5"
