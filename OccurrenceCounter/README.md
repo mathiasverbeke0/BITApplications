@@ -61,5 +61,11 @@ python OccurrenceCounter.py -i input.csv -d comma -c 5 -H -le -s -g -a -t "All O
 ```
 This command will read the input.csv file, using a comma as the delimiter and column 5 as the column to count occurrences. It assumes the input file has a header, lists the items and their occurrences, sorts the items based on their occurrences in descending order, writes the list to an excel file, and then generates a bar plot with all items, with a title of "All Occurrences of Items in Column 5" with label "Frequency" for occurrences and "Items" for items.
 
+## BelgianBeers.csv
+An example CSV file is available in the repository that contains information about some Belgian beers. The file includes the following columns: name, brewery, style, abv, and ibu. This file can be used as a sample input for testing the program.
+Please note that the information provided in this example file might not be 100% correct and accurate, it serves for demonstration purposes only.
+
+![Top 10 most occurring beers](./BelgianBeers.png "Top 10 most occurring beers")
+
 ## Dependencies
 This application requires python3 and the following packages: matplotlib and openpyxl
