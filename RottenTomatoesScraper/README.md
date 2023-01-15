@@ -1,4 +1,4 @@
-# RottenTomatoeScraper
+# RottenTomatoesScraper
 This application allows you to search for the cast and crew of a movie on Rotten Tomatoes. Simply provide the movie title as an argument and the program will construct the appropriate link and return the information. Please note that if the role of a cast member is not listed on Rotten Tomatoes, it will be displayed as "not listed" in the output.
 
 ## usage
