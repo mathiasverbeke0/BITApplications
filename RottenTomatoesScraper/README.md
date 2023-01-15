@@ -16,18 +16,18 @@ options:
 ```bash
 python3 RottenTomatoesScraper.py -m "Jurassic Park"
 ```
-Let's say you want to find the cast and crew of the movie "Jurassic Park". To do this, you would run this command. The program will then construct the link: https://www.rottentomatoes.com/m/jurassic_park and scrape the page for the cast and crew information. The output will display the main cast and crew members.
+Let's say you want to find the cast and crew of the movie "Jurassic Park". The program will automatically construct the link: https://www.rottentomatoes.com/m/jurassic_park and scrape the page for the cast and crew information. The output will display the main cast and crew members.
 
 
 ```bash
 python3 RottenTomatoesScraper.py -m "PUSS IN BOOTS: THE LAST WISH"
 ```
-Let's say you want to find the cast and crew of the movie "PUSS IN BOOTS: THE LAST WISH". To do this, you would run this command. The program will automatically remove any special characters from the title such as ":", then construct the link: https://www.rottentomatoes.com/m/puss_in_boots_the_last_wish and scrape the page for the cast and crew information. The output will display the main cast and crew members.
+Let's say you want to find the cast and crew of the movie "PUSS IN BOOTS: THE LAST WISH". The program will automatically remove any special characters from the title such as ":", then construct the link: https://www.rottentomatoes.com/m/puss_in_boots_the_last_wish and scrape the page for the cast and crew information. The output will display the main cast and crew members.
 
 ```bash
 python3 RottenTomatoesScraper.py -u https://www.rottentomatoes.com/m/shrek
 ```
-Let's say you want to find the cast and crew of the movie "SHREK" using the URL for the Rotten Tomatoes movie page. To do this, you would run this command. The program will directly scrape the page for the cast and crew information. The output will display the main cast and crew members.
+Let's say you want to find the cast and crew of the movie "SHREK" using the URL for the Rotten Tomatoes movie page. The program will directly scrape the page for the cast and crew information. The output will display the main cast and crew members.
 
 ## Error handling
 Please note that if the -m option is used and the provided movie title is not found on Rotten Tomatoes, the program will return an error message and exit the program. Possible reasons include a typo, unusual symbols in the movie title or the movie not being listed on Rotten Tomatoes. 
