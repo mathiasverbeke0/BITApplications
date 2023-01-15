@@ -70,7 +70,7 @@ Crew:
 Let's say you want to find the cast and crew of the movie "PUSS IN BOOTS: THE LAST WISH". To do this, you would run the following command:
 
 ```bash
-python3 RottenTomatoesScraper.py -m "Jurassic Park"
+python3 RottenTomatoesScraper.py -m "PUSS IN BOOTS: THE LAST WISH"
 ```
 
 The program will automatically remove any special characters such as ":" and construct the link: https://www.rottentomatoes.com/m/puss_in_boots_the_last_wish and scrape the page for the cast and crew information. The output will display the main cast and crew members.
