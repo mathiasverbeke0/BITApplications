@@ -20,11 +20,18 @@ from bs4 import BeautifulSoup
 ########################
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-m', metavar = '"movie"', type = str, required = True, help = 'provide the movie name between parenthesis')
-
+parser.add_argument('-m', metavar = '"movie"', type = str, required = False, help = 'provide the movie name between parenthesis')
+parser.add_argument('-u', metavar = 'url', type = str, required = False, help = 'provide the url for a Rotten Tomatoes movie page')
 args = parser.parse_args()
 
 movie = args.m
+
+##############################
+# Command line arguments check
+##############################
+
+if args.m == None and args.u == None:
+    sys.exit(parser.print_help())
 
 ###################
 # Application title
@@ -40,25 +47,30 @@ print(" ______     ______     ______   ______   ______     __   __        ______
 # URL construction
 ##################
 
-base_URL = "https://www.rottentomatoes.com/m/"
+if movie != None: 
+    base_URL = "https://www.rottentomatoes.com/m/"
 
-movie = movie.lower()
-movie_simplified = ""
+    movie = movie.lower()
+    movie_simplified = ""
 
-for i in movie:
-    
-    if i in 'abcdefghijklmnopqrstuvwxyz0123456789' or i == " ":
-        movie_simplified = "{}{}".format(movie_simplified, i)
-
-    else:
+    for i in movie:
         
-        movie_simplified = "{}{}".format(movie_simplified, " ")
+        if i in 'abcdefghijklmnopqrstuvwxyz0123456789' or i == " ":
+            movie_simplified = "{}{}".format(movie_simplified, i)
 
-movie_simplified = movie_simplified.replace(" ", "_")
-movie_simplified = movie_simplified.rstrip("_")
-movie_simplified = re.sub("_{2,100}","_", movie_simplified)
+        else:
+            
+            movie_simplified = "{}{}".format(movie_simplified, " ")
 
-url = base_URL + movie_simplified
+    movie_simplified = movie_simplified.replace(" ", "_")
+    movie_simplified = movie_simplified.rstrip("_")
+    movie_simplified = re.sub("_{2,100}","_", movie_simplified)
+
+    url = base_URL + movie_simplified
+
+else:
+    url = args.u
+
 print("The link '{}' will be used to search for the data.\n".format(url))
 
 ##########################################
