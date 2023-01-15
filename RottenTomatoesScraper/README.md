@@ -3,10 +3,12 @@ This application allows you to search for the cast and crew of a movie on Rotten
 
 ## usage
 ```bash
-usage: python3 movie_scraper.py -m "movie"
+usage: python3 movie_scraper.py [-m "movie"] [-u url]
 
 options: 
   -h, --help    show this help message and exit
+  -m "movie"    provide the movie name between parenthesis
+  -u url        provide the url for a Rotten Tomatoes movie page (https://www.rottentomatoes.com/m/)
 ```
 
 ## Examples
@@ -74,6 +76,14 @@ python3 RottenTomatoesScraper.py -m "PUSS IN BOOTS: THE LAST WISH"
 ```
 
 The program will automatically remove any special characters such as ":" and construct the link: https://www.rottentomatoes.com/m/puss_in_boots_the_last_wish and scrape the page for the cast and crew information. The output will display the main cast and crew members.
+
+Let's say you want to find the cast and crew of the movie "SHREK" using the url for the Rotten Tomatoes movie page. To do this, you would run the following command:
+
+```bash
+python3 RottenTomatoesScraper.py -u https://www.rottentomatoes.com/m/shrek
+```
+
+The program will scrape the page for the cast and crew information. The output will display the main cast and crew members.
 
 ## Error handling
 In case the provided movie title is not found on Rotten Tomatoes, the program will return an error message and exit the program.
