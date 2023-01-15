@@ -3,7 +3,7 @@ This application allows you to search for the cast and crew of a movie on Rotten
 
 ## usage
 ```bash
-usage: python3 movie_scraper.py [-m "movie"] [-u url]
+usage: python3 RottenTomatoesScraper.py [-m "movie"] [-u url]
 
 options: 
   -h, --help    show this help message and exit
