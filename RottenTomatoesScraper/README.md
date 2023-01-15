@@ -86,7 +86,9 @@ python3 RottenTomatoesScraper.py -u https://www.rottentomatoes.com/m/shrek
 The program will scrape the page for the cast and crew information. The output will display the main cast and crew members.
 
 ## Error handling
-In case the provided movie title is not found on Rotten Tomatoes, the program will return an error message and exit the program.
+Please note that if the -m option is used and the provided movie title is not found on Rotten Tomatoes, the program will return an error message and exit the program. Possible reasons include a typo, unusual symbols in the movie title or the movie not being listed on Rotten Tomatoes. 
+
+It is important to note that Rotten Tomatoes does not always follow its own link construction standards and there may be cases where the URLs for certain movies do not match the expected pattern. If this is the case, you can use the -u option to provide the URL yourself. For example, in the case of "SPIDER-MAN: ACROSS THE SPIDER-VERSE", the expected URL would be https://www.rottentomatoes.com/m/spider_man_across_the_spider_verse, which is the case. The expected URL for "SPIDER-MAN" on the other hand would be https://www.rottentomatoes.com/m/spider_man, but it can only be found on https://www.rottentomatoes.com/m/spiderman. 
 
 ## Dependencies
 This program requires the following python packages: argparse, urllib and bs4.
