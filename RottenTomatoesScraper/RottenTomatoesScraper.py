@@ -47,7 +47,7 @@ movie_simplified = ""
 
 for i in movie:
     
-    if i in 'abcdefghijklmnopqrstuvwxyz' or i == " ":
+    if i in 'abcdefghijklmnopqrstuvwxyz0123456789' or i == " ":
         movie_simplified = "{}{}".format(movie_simplified, i)
 
     else:
@@ -75,7 +75,7 @@ try:
     data = response.read().decode("utf-8")
 
 except Exception as e:
-    sys.exit("The following error occurred: {}\nPossible reasons include a typo, unusual symbols in the movie title, or the movie not being listed on Rotten Tomatoes. Exiting the application.".format(e))
+    sys.exit("The following error occurred: {}. Possible reasons include a typo, unusual symbols in the movie title or the movie not being listed on Rotten Tomatoes. In some cases, Rotten Tomatoes may also not follow its own link construction standards. Exiting the application.".format(e))
 
 ##################
 # Making some soup
