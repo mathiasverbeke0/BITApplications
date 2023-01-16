@@ -6,28 +6,50 @@ This application allows you to search for the cast and crew of a movie on Rotten
 usage: python3 RottenTomatoesScraper.py [-m "movie"] [-u url]
 
 options: 
-  -h, --help    show this help message and exit
-  -m "movie"    provide the movie name between parenthesis
-  -u url        provide the url for a Rotten Tomatoes movie page (https://www.rottentomatoes.com/m/)
+  -h, --help  show this help message and exit
+  -m "movie"  provide the movie name between parenthesis
+  -c          cast & crew
+  -i          general information
+  -u url      provide the url for a Rotten Tomatoes movie page
+  -a "actor"  provide the actor name between parenthesis
+  -H          hide the title and other redundant information
 ```
+
+## Restrictions
+* The -m, -u and -a options can not be used together.
 
 ## Examples
 
 ```bash
-python3 RottenTomatoesScraper.py -m "Jurassic Park"
+python3 RottenTomatoesScraper.py -cm "Jurassic Park"
 ```
 Let's say you want to find the cast and crew of the movie "Jurassic Park". The program will automatically construct the link: https://www.rottentomatoes.com/m/jurassic_park and scrape the page for the cast and crew information. The output will display the main cast and crew members.
 
 
 ```bash
-python3 RottenTomatoesScraper.py -m "PUSS IN BOOTS: THE LAST WISH"
+python3 RottenTomatoesScraper.py -cm "PUSS IN BOOTS: THE LAST WISH"
 ```
 Let's say you want to find the cast and crew of the movie "PUSS IN BOOTS: THE LAST WISH". The program will automatically remove any special characters from the title such as ":", then construct the link: https://www.rottentomatoes.com/m/puss_in_boots_the_last_wish and scrape the page for the cast and crew information. The output will display the main cast and crew members.
 
 ```bash
-python3 RottenTomatoesScraper.py -u https://www.rottentomatoes.com/m/shrek
+python3 RottenTomatoesScraper.py -cu https://www.rottentomatoes.com/m/shrek
 ```
 Let's say you want to find the cast and crew of the movie "SHREK" using the URL for the Rotten Tomatoes movie page. The program will directly scrape the page for the cast and crew information. The output will display the main cast and crew members.
+
+```bash
+python3 RottenTomatoesScraper.py -im "The Shawshank Redemption"
+```
+Let's say you want to find general information about the movie "The Shawshank Redemption". The program will automatically construct the link: "https://www.rottentomatoes.com/m/the_shawshank_redemption" and scrape the page for the general information. The output will display the synopsis and other general information.
+
+```bash
+python RottenTomatoesScraper.py -a "Tom Hanks" 
+```
+Let's say you want to find information about the Tom Hanks. The program will automatically construct the link: "https://www.rottentomatoes.com/celebrity/tom_hanks" and scrape the page to find information. The output will display information about Tom Hanks.
+
+```bash
+python RottenTomatoesScraper.py -ciHm "Shark Tale"
+```
+Let's say you want to find general information, the cast and the crew of the movie "SHARK TALE" without displaying redundant information in the terminal. The program will automatically construct the link: "https://www.rottentomatoes.com/m/shark_tale" and scrape the page for the general information, the cast and the crew. The output will display the synopsis, other general information, the cast and the crew. The title and additional messages will not be displayed.
 
 ## Error handling
 Please note that if the -m option is used and the provided movie title is not found on Rotten Tomatoes, the program will return an error message and exit the program. Possible reasons include a typo, unusual symbols in the movie title or the movie not being listed on Rotten Tomatoes. 
