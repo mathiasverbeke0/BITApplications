@@ -65,9 +65,9 @@ except Exception as e:
 
 soup = BeautifulSoup(data, 'html.parser')
 
-file = open("naam.txt", "w")
-file.write(soup.prettify())
-file.close()
+# file = open("naam.txt", "w")
+# file.write(soup.prettify())
+# file.close()
 
 ###########################################
 # Fetching information from the soup object
