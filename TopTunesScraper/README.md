@@ -1,5 +1,5 @@
 # TopTunesScraper
-This python application scrapes the "bilboard hot 100" page and returns the top selected amount of songs.
+This python application scrapes the "[bilboard hot 100](https://www.billboard.com/charts/hot-100/)" page and returns the top selected amount of songs.
 
 ## usage
 ```bash
