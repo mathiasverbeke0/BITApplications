@@ -97,9 +97,9 @@ for line in csv_reader:
         organism_list = organism.split()
         organism = " ".join(organism_list)
 
-        protein_esearch = eclient.esearch(db='protein', term='"{}"[gene] AND "{}" [orgn] AND refseq []'.format(gene, organism))
+        protein_esearch = eclient.esearch(db='protein', term='"{}"[gene] AND "{}" [orgn] AND refseq [filter]'.format(gene, organism))
         print("refseq matches for {} in {}: {}".format(gene, organism, protein_esearch.retmax))
-
+        
         if protein_esearch.retmax == 0:
             print("")
             continue
@@ -122,4 +122,3 @@ for line in csv_reader:
 
 file.close()
 fasta.close()
-
